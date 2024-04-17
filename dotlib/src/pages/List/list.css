@@ -1,0 +1,104 @@
+main{
+  width: 100%;
+  padding: 30px;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+table {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+table caption {
+  font-size: 1.5em;
+  margin: 0.5em 0 0.75em;
+}
+
+table tr {
+  background-color: #ffffff;
+  border: none;
+  padding: 0.35em;
+}
+
+table td {
+  padding: 0.60em;
+  text-align: center;
+}
+
+table thead{
+  border: 8px red solid;
+  border-radius: 90px;
+}
+
+table th {
+  background-color: rgb(100, 206, 171);
+  padding: 1.2em;
+  font-size: 0.85em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+table td .action {
+  border: 0;
+  padding: 5px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-right: 3px;
+}
+
+table td .action svg {
+  vertical-align: middle;
+}
+
+table td .badge {
+  padding: 3px;
+  border-radius: 3px;
+  color: #FFF;
+}
+
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+
+  table thead {
+    border: none;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  table tr {
+    border-bottom: 3px solid #DDD;
+    display: block;
+    margin-bottom: 0.60em;
+  }
+
+  table td {
+    border-bottom: 1px solid #DDD;
+    display: block;
+    font-size: 0.8em;
+    text-align: right;
+  }
+
+  table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
