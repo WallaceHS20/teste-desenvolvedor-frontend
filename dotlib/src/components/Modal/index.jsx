@@ -13,7 +13,7 @@ export default function Modal({ conteudo, close }) {
                     <h2>Detalhes do Medicamento</h2>
 
                     <div className='row'>
-                        <span> Identificador: <i>{conteudo.id}</i> </span>
+                        <span> Identificador: <i>{conteudo.id}</i> teste </span>
                     </div>
 
                     <div className='row'>
