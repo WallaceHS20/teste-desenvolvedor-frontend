@@ -1,10 +1,12 @@
-main{
-  width: 100%;
-  padding: 30px;
+main {
+  padding: 30px 30px 0px 30px;
   background-color: rgb(255, 255, 255);
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 5px;
 }
 
 table {
@@ -21,36 +23,40 @@ table caption {
   margin: 0.5em 0 0.75em;
 }
 
+table th {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: center;
+  padding: 12px 15px;
+}
+
 table tr {
   background-color: #ffffff;
   border: none;
-  padding: 0.35em;
+  padding: 0.5em;
+  transition: all 0.3s ease-in;
+  border-bottom: 1px solid #dddddd;
 }
 
 table td {
-  padding: 0.60em;
+  padding: 0.5em;
   text-align: center;
-}
-
-table thead{
-  border: 8px red solid;
-  border-radius: 90px;
-}
-
-table th {
-  background-color: rgb(100, 206, 171);
-  padding: 1.2em;
-  font-size: 0.85em;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
 }
 
 table td .action {
   border: 0;
-  padding: 5px;
+  padding: 8px;
   border-radius: 4px;
   display: inline-block;
   margin-right: 3px;
+}
+
+table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
 }
 
 table td .action svg {
@@ -58,9 +64,26 @@ table td .action svg {
 }
 
 table td .badge {
-  padding: 3px;
-  border-radius: 3px;
+  padding: 8px;
+  border-radius: 4px;
   color: #FFF;
+}
+
+.pagination {
+  width: 200px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination button {
+  width: 40px;
+  height: 30px;
+  margin: 0px 15px;
+  border: 1px solid transparent;
+  background-color: #009879;
+  transition: all 0.3s ease-in;
 }
 
 @media screen and (max-width: 600px) {
@@ -83,9 +106,9 @@ table td .badge {
   }
 
   table tr {
-    border-bottom: 3px solid #DDD;
+    border-bottom: 2px solid #DDD;
     display: block;
-    margin-bottom: 0.60em;
+    margin-bottom: 0.20em;
   }
 
   table td {
@@ -93,6 +116,7 @@ table td .badge {
     display: block;
     font-size: 0.8em;
     text-align: right;
+    margin: 2px;
   }
 
   table td::before {
@@ -100,5 +124,9 @@ table td .badge {
     float: left;
     font-weight: bold;
     text-transform: uppercase;
+  }
+
+  table td .badge {
+    padding: 3px;
   }
 }
