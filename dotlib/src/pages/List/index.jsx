@@ -34,7 +34,7 @@ export default function ListPage() {
 
   }, [pagina])
 
-  function showPostModal(item){
+  function showPostModal(item) {
     setShowModal(!showModal)
     setDetail(item)
   }
@@ -42,7 +42,7 @@ export default function ListPage() {
   return (
     <div className="container">
       <Title name={'Listagem de Medicamentos'}>
-        <AiFillMedicineBox size={25} color='#ffff'/>
+        <AiFillMedicineBox size={25} color='#ffff' />
       </Title>
 
       <main>
@@ -52,7 +52,7 @@ export default function ListPage() {
               <th scope="col">Nome</th>
               <th scope="col">Laboratório</th>
               <th scope="col">Data de Publicação</th>
-              <th scope="col">Tipo de Bula</th>
+              <th scope="col">Nome Princípio Ativo</th>
               <th scope="col">Detalhes</th>
             </tr>
           </thead>
@@ -63,22 +63,7 @@ export default function ListPage() {
                   <td data-label="Nome">{item.name}</td>
                   <td data-label="Laboratório">{item.company}</td>
                   <td data-label="Data de Publicação">{item.published_at}</td>
-                  <td data-label="Tipo de Bula">
-                    {/* TIPO DE BULA PROFISSIONA */}
-                    {item.documents[0].type === 'PROFESSIONAL' &&
-                      <span className="badge" style={{ backgroundColor: '#2F4F4F' }}>
-                        {item.documents[0].type}
-                      </span>
-                    }
-
-                    {/* TIPO DE BULA PACIENTE */}
-                    {item.documents[0].type === 'PATIENT' &&
-                      <span className="badge" style={{ backgroundColor: '#2E8B57' }}>
-                        {item.documents[0].type}
-                      </span>
-                    }
-
-                  </td>
+                  <td data-label="Nome Princípio Ativo">{item.active_principles[0].name}</td>
                   <td data-label="Detalhes">
                     <button className="action" style={{ backgroundColor: '#20B2AA' }} onClick={() => showPostModal(item)}>
                       <LuInfo color='#FFF' size={17} />
@@ -107,22 +92,22 @@ export default function ListPage() {
 
           {medicamentos.length < 10 ? (
             <button disabled className='return' style={{ backgroundColor: '#A9A9A9' }}>
-              <MdOutlineArrowForwardIos  color='#FFF' size={17} />
+              <MdOutlineArrowForwardIos color='#FFF' size={17} />
             </button>
           ) : (
             <button onClick={() => setPagina(pagina + 1)} className='return'>
-              <MdOutlineArrowForwardIos  color='#FFF' size={17} />
+              <MdOutlineArrowForwardIos color='#FFF' size={17} />
             </button>
           )}
 
         </div>
       </main>
-      {showModal && 
+      {showModal &&
         <Modal
-        conteudo={detail}
-        close={() => setShowModal(!showModal)}
+          conteudo={detail}
+          close={() => setShowModal(!showModal)}
         />
-        }
+      }
     </div>
   )
 }
