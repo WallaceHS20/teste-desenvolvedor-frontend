@@ -6,6 +6,7 @@ import { LuInfo } from "react-icons/lu";
 import { FaRegFilePdf } from "react-icons/fa";
 import { AiFillMedicineBox } from "react-icons/ai";
 import { MdOutlineArrowBackIos, MdOutlineArrowForwardIos } from "react-icons/md";
+
 import Modal from '../../components/Modal'
 
 import './list.css'

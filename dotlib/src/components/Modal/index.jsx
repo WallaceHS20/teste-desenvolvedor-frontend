@@ -1,13 +1,12 @@
 import './modal.css'
 import { FiX } from 'react-icons/fi'
-
-import { FaBarcode } from "react-icons/fa6";
+import { Link } from "react-router-dom"
 import { RiMedicineBottleFill } from "react-icons/ri";
 import { ImLab } from "react-icons/im";
 import { PiNewspaperClipping } from "react-icons/pi";
-import { FaUserDoctor } from "react-icons/fa6";
-import { BsPersonFill } from "react-icons/bs";
-import { GiMaterialsScience } from "react-icons/gi";
+import { FaRegFilePdf } from "react-icons/fa";
+import { TbBarcode } from "react-icons/tb";
+import { PiPillThin } from "react-icons/pi";
 
 export default function Modal({ conteudo, close }) {
     return (
@@ -21,48 +20,63 @@ export default function Modal({ conteudo, close }) {
                     <h2> Detalhes do Medicamento </h2>
 
                     <div className='row'>
-                        <GiMaterialsScience size={15} color='#00000'/>
+                        <PiNewspaperClipping size={25} color='#00000' />
                         <span> Identificador: <i>{conteudo.id}</i></span>
                     </div>
 
                     <div className='row'>
+                        <RiMedicineBottleFill size={25} color='#00000' />
                         <span> Nome: <i>{conteudo.name}</i> </span>
                     </div>
 
                     <div className="row">
+                        <ImLab size={25} color='#00000' />
                         <span>
                             Laboratório: <i>{conteudo.company}</i>
                         </span>
                     </div>
 
+                    {conteudo.documents.map((doc) => (
+                        doc.type === 'PROFESSIONAL' && (
+                            <div key={doc.id} className="row">
+                                <FaRegFilePdf size={25} color='#00000' />
+                                <span>
+                                    Bula Profissional:
+                                    <Link to={`${doc.url}`} className="icon-span">
+                                        Bula_Profissional.pdf
+                                    </Link>
+                                </span>
+                            </div>
+                        )
+                    ))}
+
+                    {conteudo.documents.map((doc) => (
+                        doc.type === 'PATIENT' && (
+                            <div key={doc.id} className="row">
+                                <FaRegFilePdf size={30} color='#00000' />
+                                <span>
+                                    Bula Paciente:
+                                    <Link to={`${doc.url}`} className="icon-span">
+                                        Bula_Paciente.pdf
+                                    </Link>
+                                </span>
+                            </div>
+                        )
+                    ))}
+
                     <div className="row">
+                        <TbBarcode size={25} color='#00000' />
                         <span>
-                            Tipo de Bula: <i>{conteudo.documents[0].type}</i>
+                            Código Princípio Ativo: <i>{conteudo.active_principles[0].id}</i>
                         </span>
                     </div>
 
                     <div className="row">
+                        <PiPillThin size={25} color='#00000' />
                         <span>
-                            PDF Bula: <a href={conteudo.documents[0].url}> Ver Pdf </a>
+                            Nome Principio Ativo: <i>{conteudo.active_principles[0].name}</i>
                         </span>
                     </div>
-
-                    <div className="row">
-                        <span>
-                            Principio Ativo: <i>{conteudo.active_principles[0].name}</i>
-                        </span>
-                    </div>
-
-                    {conteudo.complemento ? (
-                        <>
-                            <h3>Complemento</h3>
-                            <p>
-                                {conteudo.name}
-                            </p>
-                        </>
-                    ) : (
-                        <h3>Sem complemento</h3>
-                    )}
                 </div>
             </div>
         </div>
