@@ -19,7 +19,7 @@ Solução desenvolvida para o desafio em desenvolver uma aplicação em React de
 
 ## Resultado
 
-https://github.com/WallaceHS20/TICKETS/assets/101594950/05cc5d18-398e-420d-9189-9b53981ace17
+https://github.com/WallaceHS20/teste-desenvolvedor-frontend/assets/101594950/a22d8b1a-613b-452f-87f0-af6110d68178
 
 ## Instalação
 
