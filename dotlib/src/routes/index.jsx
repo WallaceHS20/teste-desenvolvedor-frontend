@@ -1,11 +1,10 @@
 import { Routes, Route } from 'react-router-dom'
-
 import ListPage from '../pages/List'
 
 function RoutesApp(){
     return(
         <Routes>
-            <Route path='/list' element={<ListPage/>}/>
+            <Route path='/' element={<ListPage/>}/>
         </Routes>
     )
 }

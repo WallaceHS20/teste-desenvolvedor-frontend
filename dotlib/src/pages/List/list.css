@@ -13,6 +13,43 @@ main {
   border-radius: 5px;
 }
 
+.filter{
+  width: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.filter label{
+  font-size: 1.2em;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.group-box{
+  display: flex;
+}
+
+.code-box{
+  width: 250px;
+  border: 1px solid #009879;
+  outline: none;
+  padding: 5px;
+}
+
+.icon-search{
+  background-color: #009879;
+  padding: 5px;
+  border: none;
+  transition: all ease-in 0.3s;
+}
+
+.icon-search:hover{
+  background-color: #0cb493;
+}
+
 table {
   border: none;
   margin: 0;
@@ -98,6 +135,14 @@ table td .badge {
 
   main{
     padding: 3px 10px;
+  }
+
+  .filter{
+    margin-top: 10px;
+  }
+
+  .code-box{
+    width: 180px;
   }
 
   table {

@@ -1,4 +1,6 @@
 import './modal.css'
+
+{/* REACT-ICONS */}
 import { FiX } from 'react-icons/fi'
 import { Link } from "react-router-dom"
 import { RiMedicineBottleFill } from "react-icons/ri";
@@ -35,6 +37,8 @@ export default function Modal({ conteudo, close }) {
                             Laboratório: <i>{conteudo.company}</i>
                         </span>
                     </div>
+
+                    {/* PERCORRENDO ARRAY PARA COLETAR URL DA BULA PARA CADA TIPO */}
 
                     {conteudo.documents.map((doc) => (
                         doc.type === 'PROFESSIONAL' && (
